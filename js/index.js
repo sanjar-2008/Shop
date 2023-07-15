@@ -1,4 +1,5 @@
-import Render from "./render.js";
+import Product from "./product.js";
+new Product().init()
 class Ave {
   constructor() {
     this.basket = document.querySelector('.fashion-block__addBasket');
@@ -17,6 +18,7 @@ class Ave {
   }
 
   init() {
+    this.renderProducts()
     this.setupEventListeners();
     this.renderSavedItems();
     this.clearItem();
@@ -24,7 +26,6 @@ class Ave {
     this.generateTotal();
     this.priceItems()
     this.buyItems()
-    this.renderProducts()
   }
   renderProducts() {
     let arr = [
@@ -250,4 +251,3 @@ class Ave {
 }
 
 new Ave().init();
-new Render()

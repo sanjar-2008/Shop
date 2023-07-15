@@ -1,48 +1,49 @@
-class Product {
+export default class Product {
     constructor() {
-      this.product = document.querySelectorAll('.fashion-block-item');
-      this.viewProducts = JSON.parse(localStorage.getItem('product')) || [];
+        this.product = document.querySelectorAll('.fashion-block__img');
+        this.viewProducts = JSON.parse(localStorage.getItem('product')) || [];
+        this.box = document.querySelector('.product')
+        console.log(this.box);
     }
-  
+
     init() {
-      this.addToZoom();
-      this.removeProduct();
+        this.addToZoom();
     }
-  
+
     addToZoom() {
-      this.product.forEach((item) => {
-        item.addEventListener('click', (event) => {
-          event.preventDefault();
-          window.location.href = './product.html';
-          this.addProduct(event);
+        this.product.forEach((item) => {
+          item.addEventListener('click', (event)=>{
+            this.addProduct(event)
+            window.location.href = './product.html'
+          })
         });
-      });
+      }
+
+    addProduct(event){
+        const product = event.target.closest('.fashion-block-item');
+        const productName = product.querySelector('.fashion-block-info > p:first-child').textContent;
+        const productImage = product.querySelector('.fashion-block__img img');
+        const price = product.querySelector('.fashion-block__price > p').textContent;
+        const productImageSrc = productImage ? productImage.getAttribute('src') : '';
+
+        const item = {
+            name: productName,
+            price: price,
+            image: productImageSrc,
+            count: 1
+        };
+        
+        this.viewProducts.push(item);
+        localStorage.setItem('product', JSON.stringify(this.viewProducts));
+        this.renderProduct(item);
     }
-  
-    addProduct(event) {
-      const product = event.target.closest('.fashion-block-item');
-      const productName = product.querySelector('.fashion-block-info > p:first-child').textContent;
-      const productImage = product.querySelector('.fashion-block__img img');
-      const price = product.querySelector('.fashion-block__price > p').textContent;
-      const productImageSrc = productImage ? productImage.getAttribute('src') : '';
-  
-      const item = [{
-        name: productName,
-        price: price,
-        image: productImageSrc,
-        count: 1
-      }];
-  
-      this.viewProducts.push(item);
-      localStorage.setItem('product', JSON.stringify(this.viewProducts));
-      this.renderProduct(item);
-    }
-  
+
     renderProduct(item) {
-      let box = document.querySelector('.product-box');
-      box.insertAdjacentHTML(
-        'beforeend',
-        `
+        console.log(item);
+        if (!this.box) return;
+        let box = this.box.querySelector('.product-box');
+        if (!box) return;   
+        box.insertAdjacentHTML('afterbegin', `
         <div class="product-box-img">
             <img src="${item.image}">
         </div>
@@ -80,17 +81,8 @@ class Product {
                 </a>
             </form>
         </div>
-        `
-      );
+        `);
     }
-  
-    removeProduct() {
-      document.querySelector('.header-holder__logo').addEventListener('click', () => {
-        localStorage.removeItem('product');
-      });
-    }
-  }
-  
-  new Product().init()
+}
 
-  
+    new Product().init();
