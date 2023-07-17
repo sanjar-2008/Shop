@@ -1,25 +1,30 @@
 export default class Product {
     constructor() {
-        this.product = document.querySelectorAll('.fashion-block__img');
         this.viewProducts = JSON.parse(localStorage.getItem('product')) || [];
-        this.box = document.querySelector('.product')
-        console.log(this.box);
+        this.box = null;
     }
 
     init() {
-        this.addToZoom();
+        document.addEventListener('DOMContentLoaded', () => {
+            this.product = document.querySelectorAll('.fashion-block__img');
+            this.box = document.querySelector('.product-box');
+            console.log(this.box);
+            this.addToZoom();
+            this.renderSavedItems()
+            this.zoomProduct()
+        });
     }
 
     addToZoom() {
         this.product.forEach((item) => {
-          item.addEventListener('click', (event)=>{
-            this.addProduct(event)
-            window.location.href = './product.html'
-          })
+            item.addEventListener('click', (event) => {
+                this.addProduct(event);
+                window.location.href = './product.html'; // Move this line after addProduct()
+            });
         });
-      }
+    }
 
-    addProduct(event){
+    addProduct(event) {
         const product = event.target.closest('.fashion-block-item');
         const productName = product.querySelector('.fashion-block-info > p:first-child').textContent;
         const productImage = product.querySelector('.fashion-block__img img');
@@ -32,20 +37,20 @@ export default class Product {
             image: productImageSrc,
             count: 1
         };
-        
+
         this.viewProducts.push(item);
         localStorage.setItem('product', JSON.stringify(this.viewProducts));
-        this.renderProduct(item);
     }
-
+    renderSavedItems() {
+        this.viewProducts.forEach((item) => {
+            this.renderProduct(item);
+        });
+    }
     renderProduct(item) {
         console.log(item);
-        if (!this.box) return;
-        let box = this.box.querySelector('.product-box');
-        if (!box) return;   
-        box.insertAdjacentHTML('afterbegin', `
+        this.box.insertAdjacentHTML('beforeend', `
         <div class="product-box-img">
-            <img src="${item.image}">
+            <img src="${item.image}" id="image-zoom">
         </div>
         <div class="product-character">
             <form action="#">
@@ -81,8 +86,30 @@ export default class Product {
                 </a>
             </form>
         </div>
-        `);
+      `);
     }
+    zoomProduct() {
+        let block = document.querySelector('.product-box-img');
+        let img = document.querySelector('.product-box-img img');
+    
+        block.addEventListener('mousemove', (event) => {
+            let clientX = event.pageX - block.offsetLeft;
+            let clientY = event.pageY - block.offsetTop;
+    
+            let bWidth = block.offsetWidth;
+            let bHeight = block.offsetHeight;
+    
+            let clientXPercent = (clientX / bWidth) * 100;
+            let clientYPercent = (clientY / bHeight) * 100;
+            img.style.transform = `translate(-${clientXPercent}%, -${clientYPercent}%) scale(2)`;
+        });
+    
+        block.addEventListener('mouseleave', (e) => {
+            img.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    }
+
+
 }
 
-    new Product().init();
+new Product().init();
