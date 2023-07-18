@@ -3,7 +3,7 @@ new Product().init()
 class Ave {
   constructor() {
     this.basket = document.querySelector('.fashion-block__addBasket');
-    this.items = document.querySelector('#headerItems');
+    this.items = document.querySelector('.header-block__items-inner');
     this.fashion = document.querySelector('.fashion-block');
     this.clearCard = document.querySelector('#headerClear');
     this.count = document.querySelector('#headerTotal');

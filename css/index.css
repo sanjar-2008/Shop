@@ -9,6 +9,41 @@
 }
 
 @media only screen and (min-width: 320px) {
+  .header-block__product {
+    display: flex;
+    margin: 20px 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  .header-block__product-name {
+    width: 150px;
+  }
+  .header-block__info {
+    display: flex;
+    align-items: center;
+  }
+  .header-block__info input {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+  }
+  .header-block__info button {
+    background: red;
+    border: 1px solid red;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  .header-block__product-photo img {
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 10px;
+  }
   .header-nav {
     background: #333333;
   }
@@ -34,7 +69,7 @@
   .header-nav-block_links a {
     text-transform: none;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 600;
     margin: 0 10px;
@@ -49,7 +84,7 @@
     padding: 15px 33px;
     position: relative;
     background: #00c8c8;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     color: #fff;
   }
@@ -58,7 +93,7 @@
     margin-top: 20px;
     text-transform: capitalize;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     color: #222;
   }
@@ -68,7 +103,7 @@
     padding: 10px 30px;
     cursor: pointer;
     border-radius: 3px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     color: #fff;
   }
@@ -95,7 +130,7 @@
     margin-top: 20px;
     text-transform: capitalize;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     color: #222;
     display: flex;
@@ -127,7 +162,7 @@
   .header-holder__logo {
     position: relative;
     z-index: 2;
-    left: 17px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
   .header-holder__logo a {
     text-transform: uppercase;
@@ -176,7 +211,7 @@
     transition: 0.3s all linear;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 600;
     color: #222;
@@ -207,7 +242,7 @@
     padding: 10px;
     border: 1px solid #e7e7e7;
     background-color: #f8f8f8;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #989898;
@@ -235,7 +270,7 @@
     text-transform: uppercase;
     text-decoration: none;
     line-height: 20px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 12px;
     font-weight: 600;
     color: #575153;
@@ -247,7 +282,7 @@
     text-transform: none;
     text-decoration: none;
     line-height: 20px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #575153;
@@ -265,7 +300,7 @@
     text-transform: uppercase;
     text-decoration: none;
     line-height: 32px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 36px;
     font-weight: 600;
     color: #fff;
@@ -291,7 +326,7 @@
     z-index: 1;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 135px;
     font-weight: 700;
     color: #575153;
@@ -306,7 +341,7 @@
     border: 2px solid #737373;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #777777;
@@ -345,9 +380,10 @@
     height: auto;
   }
   .fashion-block__price {
+    display: flex;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 21px;
     font-weight: 300;
     color: #9a9a9a;
@@ -369,7 +405,7 @@
   .fashion-block-info p:nth-child(1) {
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #727272;
@@ -415,6 +451,7 @@
   }
   .lookBook-block-info {
     text-align: center;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
   .lookBook-block-info p:nth-child(1) {
     color: #777777;
@@ -458,6 +495,7 @@
     flex-wrap: wrap;
     padding: 60px 0;
     justify-content: space-around;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
   .footer-link {
     flex-basis: 39%;
@@ -502,6 +540,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
   .footer-ban-item p {
     text-transform: uppercase;
@@ -582,7 +621,6 @@
     position: absolute;
     top: 103%;
     left: -250px;
-    z-index: 3;
   }
   .header-block__items-actions p {
     display: block;
@@ -630,7 +668,7 @@
     display: grid;
     position: relative;
     grid-gap: 30px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 240px 173px 240px;
   }
   .lookBook {
@@ -681,7 +719,7 @@
     right: -400px;
   }
   .fashion-block {
-    grid-template-rows: 300px 173px 300px;
+    grid-template-rows: 360px 360px 360px;
   }
   .lookBook {
     display: flex;
@@ -725,7 +763,7 @@
   .header-nav-block_links a {
     text-transform: none;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 600;
     margin: 0 10px;
@@ -740,7 +778,7 @@
     padding: 15px 33px;
     position: relative;
     background: #00c8c8;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     color: #fff;
   }
@@ -749,7 +787,7 @@
     margin-top: 20px;
     text-transform: capitalize;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     color: #222;
   }
@@ -759,7 +797,7 @@
     padding: 10px 30px;
     cursor: pointer;
     border-radius: 3px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     color: #fff;
   }
@@ -786,7 +824,7 @@
     margin-top: 20px;
     text-transform: capitalize;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     color: #222;
   }
@@ -845,7 +883,7 @@
     transition: 0.3s all linear;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 600;
     color: #222;
@@ -874,7 +912,7 @@
     padding: 10px;
     border: 1px solid #e7e7e7;
     background-color: #f8f8f8;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #989898;
@@ -902,7 +940,7 @@
     text-transform: uppercase;
     text-decoration: none;
     line-height: 20px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 12px;
     font-weight: 600;
     color: #575153;
@@ -914,7 +952,7 @@
     text-transform: none;
     text-decoration: none;
     line-height: 20px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #575153;
@@ -932,7 +970,7 @@
     text-transform: uppercase;
     text-decoration: none;
     line-height: 32px;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 36px;
     font-weight: 600;
     color: #fff;
@@ -961,7 +999,7 @@
     z-index: 1;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 450px;
     font-weight: 700;
     color: #575153;
@@ -981,7 +1019,7 @@
     border: 2px solid #737373;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #777777;
@@ -1027,7 +1065,7 @@
     text-transform: uppercase;
     text-decoration: none;
     display: flex;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 21px;
     font-weight: 300;
     color: #9a9a9a;
@@ -1049,7 +1087,7 @@
   .fashion-block-info p:nth-child(1) {
     text-transform: uppercase;
     text-decoration: none;
-    font-family: Montserrat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #727272;

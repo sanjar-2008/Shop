@@ -1,14 +1,12 @@
 export default class Product {
     constructor() {
         this.viewProducts = JSON.parse(localStorage.getItem('product')) || [];
-        this.box = null;
     }
 
     init() {
         document.addEventListener('DOMContentLoaded', () => {
             this.product = document.querySelectorAll('.fashion-block__img');
             this.box = document.querySelector('.product-box');
-            console.log(this.box);
             this.addToZoom();
             this.renderSavedItems()
             this.zoomProduct()
@@ -18,8 +16,8 @@ export default class Product {
     addToZoom() {
         this.product.forEach((item) => {
             item.addEventListener('click', (event) => {
+                window.location.href = './product.html';
                 this.addProduct(event);
-                window.location.href = './product.html'; // Move this line after addProduct()
             });
         });
     }
@@ -47,7 +45,6 @@ export default class Product {
         });
     }
     renderProduct(item) {
-        console.log(item);
         this.box.insertAdjacentHTML('beforeend', `
         <div class="product-box-img">
             <img src="${item.image}" id="image-zoom">
@@ -91,19 +88,19 @@ export default class Product {
     zoomProduct() {
         let block = document.querySelector('.product-box-img');
         let img = document.querySelector('.product-box-img img');
-    
+
         block.addEventListener('mousemove', (event) => {
             let clientX = event.pageX - block.offsetLeft;
             let clientY = event.pageY - block.offsetTop;
-    
+
             let bWidth = block.offsetWidth;
             let bHeight = block.offsetHeight;
-    
+
             let clientXPercent = (clientX / bWidth) * 100;
             let clientYPercent = (clientY / bHeight) * 100;
             img.style.transform = `translate(-${clientXPercent}%, -${clientYPercent}%) scale(2)`;
         });
-    
+
         block.addEventListener('mouseleave', (e) => {
             img.style.transform = 'translate(-50%, -50%) scale(1)';
         });
