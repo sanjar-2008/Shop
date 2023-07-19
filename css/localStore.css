@@ -10,6 +10,12 @@
 }
 
 @media only screen and (min-width: 320px) {
+  .header-nav-block_links {
+    display: flex;
+  }
+  .header-nav-block_links a:nth-child(1) {
+    display: none;
+  }
   .header {
     height: 140px;
   }
@@ -35,7 +41,7 @@
     flex-direction: row;
     align-items: center;
   }
-  .header-nav-block_links a {
+  .header-nav-block_links a, .header-nav-block_links p {
     text-transform: none;
     text-decoration: none;
     font-family: Montserrat;

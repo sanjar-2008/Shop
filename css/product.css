@@ -10,6 +10,12 @@
 }
 
 @media only screen and (max-width: 2000px) {
+  .header-nav-block_links {
+    display: flex;
+  }
+  .header-nav-block_links a:nth-child(1) {
+    display: none;
+  }
   .product-box-img {
     width: 500px;
     height: 500px;
@@ -72,7 +78,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .header-nav-block_links a {
+  .header-nav-block_links a, .header-nav-block_links p {
     text-transform: none;
     text-decoration: none;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;

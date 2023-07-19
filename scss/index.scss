@@ -7,6 +7,12 @@
     overflow: hidden;
 }
 @media only screen and(min-width:320px) {
+    .header-nav-block_links{
+        display: flex;
+        a:nth-child(1){
+           display: none;
+       }
+    }
     .header-block__product {
         display: flex;
         margin: 20px 0;
@@ -73,7 +79,7 @@
         align-items: center;
     }
     .header-nav-block_links {
-        a {
+        a,p {
             text-transform: none;
             text-decoration: none;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -81,6 +87,7 @@
             font-weight: 600;
             margin: 0 10px;
             color: #777777;
+            cursor: pointer;
         }
     }
     .header-nav-items {

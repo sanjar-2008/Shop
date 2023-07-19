@@ -1,4 +1,5 @@
 import Product from "./product.js";
+import { getData } from "./utils.js";
 new Product().init()
 class Ave {
   constructor() {
@@ -26,30 +27,55 @@ class Ave {
     this.generateTotal();
     this.priceItems()
     this.buyItems()
+    this.permission()
   }
   renderProducts() {
     let arr = [
-      'shirt1',
-      'shirt2',
-      'shirt3',
-      'shirt4',
-      'shirt5',
-      'shirt6'
+      {
+        img: 'shirt1',
+        price: 56,
+        name: 'AVE CLASSIC SWEATSHIRT'
+      },
+      {
+        img: 'shirt2',
+        price: 150,
+        name: 'AVE CLASSIC SWEATSHIRT'
+      },
+      {
+        img: 'shirt3',
+        price: 32,
+        name: 'AVE CLASSIC SWEATSHIRT'
+      },
+      {
+        img: 'shirt4',
+        price: 96,
+        name: 'AVE CLASSIC SWEATSHIRT'
+      },
+      {
+        img: 'shirt5',
+        price: 80,
+        name: 'AVE CLASSIC SWEATSHIRT'
+      },
+      {
+        img: 'shirt6',
+        price: 45,
+        name: 'AVE CLASSIC SWEATSHIRT'
+      }
     ];
+  
     arr.forEach((item) => {
       this.fashion.insertAdjacentHTML(
         'afterbegin',
         `
         <div class="fashion-block-item">
           <div class="fashion-block__img">
-            <img src="images/${item}.png">
+            <img src="images/${item.img}.png">
           </div>
           <div class="fashion-block__price">
-          $
-            <p>56</p>
+            $<p>${item.price}</p>
           </div>
           <div class="fashion-block-info">
-            <p>AVE CLASSIC SWEATSHIRT</p>
+            <p>${item.name}</p>
             <p>Classic casual t-shirt for women on the move. 100% cotton.</p>
             <div class="fashion-block__add">
               <button class="fashion-block__addBasket">
@@ -68,6 +94,7 @@ class Ave {
       );
     });
   }
+  
   setupEventListeners() {
     const addButtons = document.querySelectorAll('.fashion-block__addBasket');
     addButtons.forEach((button) => {
@@ -230,10 +257,8 @@ class Ave {
     })
   }
   renderBuy(name,phone,buy,block){
-    const products = {
-      products: this.savedItems,
-      totalPrice: this.price
-    }
+    let img = this.savedItems.image
+    let count = this.savedItems.count
     buy.addEventListener('click', ()=>{
       if(name.value === '' && phone.value === ''){
         alert('Пожалуйста заполните свое имя или номер!')
@@ -242,10 +267,40 @@ class Ave {
         localStorage.removeItem('savedItems')
         alert('Спасибо за покупку!')
         location.href = location.href
+        const products = {
+          img: img,
+          count: count,
+          totalPrice: this.price,
+          name: name.value,
+          phone: phone.value
+        }
         this.myProducts.push(products)
         localStorage.setItem('myProducts', JSON.stringify(this.myProducts))
       }
 
+    })
+  }
+  permission(){
+    this.admin = getData('admin')
+    let permission = document.querySelector('.permission')
+    let reg = document.querySelector('.reg')
+    let reg1 = document.querySelector('.reg1')
+    let logout = document.querySelector('.logout')
+    if(this.admin != ''){
+      reg.style.display = 'none'
+      reg1.style.display = 'none'
+      if(this.admin.isAdmin == true){
+        permission.style.display = 'block'
+      }
+      else{
+        permission.style.display = 'none'
+      }
+    }
+    logout.addEventListener('click', ()=>{
+      console.log(logout);
+      logout.style.display = 'none'
+      localStorage.removeItem('admin')
+      location.href = location.href
     })
   }
 }
