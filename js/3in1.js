@@ -1,9 +1,8 @@
 import { getData } from "./utils.js";
-
 class Permission {
   constructor() {
     this.order = document.querySelector('#orderList');
-    this.customerData = getData('myProducts');
+    this.customerData = getData('orders');
   }
 
   init() {
@@ -11,35 +10,38 @@ class Permission {
   }
 
   renderOrder() {
-    console.log(this.customerData);
-    this.customerData.products.forEach((product) => {
-        console.log(product);
+    this.customerData.forEach((product) => {
       this.order.insertAdjacentHTML('beforeend', `
-        <tr>
-          <td>${this.customerData.name}</td>
-          <td>${this.customerData.phone}</td>
+        <tr id="product">
+          <td>${product.name}</td>
+          <td>${product.phone}</td>
           <td>
             <button class="form-show">Show</button>
           </td>
           <td>
             <button class="form-execute">Execute</button>
           </td>
+          <td class="list"></td>
         </tr>
       `);
+      this.products = document.querySelector('.list')
 
-      this.order.insertAdjacentHTML('beforeend', `
-        <div class="fashion-block-item">
-          <div class="fashion-block__img">
-            <img src="${product.image}">
-          </div>
-          <div class="fashion-block__price">
-            $<p>${product.price}</p>
-          </div>
-          <div class="fashion-block-info">
-            <p>${product.name}</p>
+      product.product.forEach((item) => {
+        console.log(item);
+        this.products.insertAdjacentHTML('beforeend', `
+        <div class="header-block__product" id="${item.id}">
+        <div class="header-block__product-photo">
+          <img src="${item.image}" alt="product">
+        </div>
+        <div class="header-block__info">
+        <div class="header-block__price">$${item.price}</div>
+          <div class="header-block__product-name">
+            ${item.name}
           </div>
         </div>
-      `);
+      </div>
+        `);
+      });
     });
   }
 }

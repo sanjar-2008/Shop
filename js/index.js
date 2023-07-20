@@ -10,7 +10,7 @@ class Ave {
     this.count = document.querySelector('#headerTotal');
     this.headCount = document.querySelector('#headerCounter')
     this.savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
-    this.myProducts = JSON.parse(localStorage.getItem('myProducts')) || [];
+    this.orders = JSON.parse(localStorage.getItem('orders')) || [];
     this.totalItems = this.savedItems.length;
     this.buy = document.querySelector('#headerBuy')
     this.price = this.calculateTotalPrice();
@@ -268,14 +268,13 @@ class Ave {
         alert('Спасибо за покупку!')
         location.href = location.href
         const products = {
-          img: img,
-          count: count,
+          product: this.savedItems,
           totalPrice: this.price,
           name: name.value,
           phone: phone.value
         }
-        this.myProducts.push(products)
-        localStorage.setItem('myProducts', JSON.stringify(this.myProducts))
+        this.orders.push(products)
+        localStorage.setItem('orders', JSON.stringify(this.orders))
       }
 
     })
