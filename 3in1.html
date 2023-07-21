@@ -30,7 +30,7 @@
                     <div class="header-users-reg">
                         <form>
                             <div class="header-users-reg-item">
-                                <label for="login">Login:</label>
+                                <label for="login">Login</label>
                                 <input type="text" id="login">
                             </div>
                             <div class="header-users-reg-item">
@@ -55,7 +55,7 @@
                             </tr>
                         </thead>
                         <tbody id="userList">
-                            <tr>
+                            <!-- <tr>
                                 <td><img src="images/user.jpg" alt=""></td>
                                 <td>Login</td>
                                 <td>Password</td>
@@ -65,8 +65,16 @@
                                 <td>
                                     <button class="form-delete">Delete</button>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
+                        <div class="show-admins">
+                            <div class="show-admins-block">
+                                <button class="show-admins__x">X</button>
+                                <input type="text" class="show-admins-log" placeholder="Login">
+                                <input type="text" class="show-admins-pass" placeholder="Password">
+                                <button class="show-admins-subm">Submit</button>
+                            </div>
+                        </div>
                     </table>
                     <div class="change" id="changeBlock">
                         <form>
@@ -156,7 +164,8 @@
     <div class="order-show">
         
     </div>
-    <script type="module" src="js/3in1.js"></script>
+    <script type="module" src="js/order.js"></script>
+    <script type="module" src="js/userLog.js"></script>
 </body>
 
 </html>

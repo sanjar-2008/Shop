@@ -259,6 +259,7 @@ class Ave {
   renderBuy(name,phone,buy,block){
     let img = this.savedItems.image
     let count = this.savedItems.count
+    let random = Math.floor(Math.random()*1000)
     buy.addEventListener('click', ()=>{
       if(name.value === '' && phone.value === ''){
         alert('Пожалуйста заполните свое имя или номер!')
@@ -268,6 +269,7 @@ class Ave {
         alert('Спасибо за покупку!')
         location.href = location.href
         const products = {
+          id: random,
           product: this.savedItems,
           totalPrice: this.price,
           name: name.value,
