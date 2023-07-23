@@ -15,6 +15,15 @@ export function setData(key, data) {
         return admins;
     }
 }
+export class Products {
+    saveProductToLocalStorage(product){
+        localStorage.setItem('product', JSON.stringify(product));
+    }
+    productFromLocalStorage() {
+        let product = JSON.parse(localStorage.getItem('product') || '[]');
+        return product;
+    }
+}
 export function clearData(key) {
     localStorage.removeItem(key);
  }

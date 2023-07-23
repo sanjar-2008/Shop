@@ -18,6 +18,7 @@ class User {
     }
 
     renderUser() {
+        this.userList.innerHTML = ''
         this.users.forEach((item) => {
             const customerRow = document.createElement('tr');
             customerRow.className = 'product';
@@ -57,30 +58,50 @@ class User {
             const admins = JSON.parse(localStorage.getItem('admins')) || [];
             admins.push(newAdmin);
             localStorage.setItem('admins', JSON.stringify(admins));
-            alert('Админ успешно добавлен.');
+            this.renderUser(admins)
         }
     }
 
     showAdmins() {
-        const showBlock = document.querySelector('.show-admins');
+        const showBlock = document.querySelector('#changeBlock');
         this.userList.addEventListener('click', (event) => {
             if (event.target.className === 'form-change') {
                 showBlock.style.display = 'block';
                 let id = event.target.closest('.product').id;
-                let user = this.users.find((item) => item.id == id);
-                if (user) {
-                    this.change(user.login, user.password);
-                }
+                this.users.find((item) =>{
+                    if(item.id == id){
+                        this.change(id,item.login, item.password);
+                    }
+                });
+            }
+            if(event.target.className === 'form-delete'){
+                let id = event.target.closest('.product').id
+                let customer = this.users.filter((item) => item.id != id);
+                localStorage.setItem('admins', JSON.stringify(customer));
+                this.users = customer
+                this.renderUser(this.users);
             }
         });
     }
 
-    change(login, password) {
-        const logShow = document.querySelector('.show-admins-log');
-        const passShow = document.querySelector('.show-admins-pass');
-
+    change(id,login, password) {
+        const showBlock = document.querySelector('#changeBlock');
+        const logShow = document.querySelector('#changeLogin');
+        const passShow = document.querySelector('#changePassword');
+        const close = document.querySelector('#close')
+        const submit = document.querySelector('#save')
         logShow.value = login;
         passShow.value = password;
+        close.addEventListener('click', (event)=>{
+            event.preventDefault()
+            showBlock.style.display = 'none'
+        })
+        submit.addEventListener('click', (event)=>{
+            event.preventDefault()
+            login = logShow.value
+            password = passShow.value
+            showBlock.style.display = 'none'
+        })
     }
 }
 

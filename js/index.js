@@ -1,5 +1,7 @@
-import Product from "./product.js";
+import Product from "./zoom.js";
 import { getData } from "./utils.js";
+import { product } from './users.js'
+console.log(product);
 new Product().init()
 class Ave {
   constructor() {
@@ -30,40 +32,8 @@ class Ave {
     this.permission()
   }
   renderProducts() {
-    let arr = [
-      {
-        img: 'shirt1',
-        price: 56,
-        name: 'AVE CLASSIC SWEATSHIRT'
-      },
-      {
-        img: 'shirt2',
-        price: 150,
-        name: 'AVE CLASSIC SWEATSHIRT'
-      },
-      {
-        img: 'shirt3',
-        price: 32,
-        name: 'AVE CLASSIC SWEATSHIRT'
-      },
-      {
-        img: 'shirt4',
-        price: 96,
-        name: 'AVE CLASSIC SWEATSHIRT'
-      },
-      {
-        img: 'shirt5',
-        price: 80,
-        name: 'AVE CLASSIC SWEATSHIRT'
-      },
-      {
-        img: 'shirt6',
-        price: 45,
-        name: 'AVE CLASSIC SWEATSHIRT'
-      }
-    ];
   
-    arr.forEach((item) => {
+    product.forEach((item) => {
       this.fashion.insertAdjacentHTML(
         'afterbegin',
         `
@@ -93,6 +63,7 @@ class Ave {
       `
       );
     });
+    localStorage.setItem('product', JSON.stringify(product))
   }
   
   setupEventListeners() {

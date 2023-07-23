@@ -58,25 +58,23 @@ class Permission {
   }
 
   showProduct() {
-    const products = document.querySelectorAll('.product');
-    products.forEach((product) => {
-      product.addEventListener('click', (event) => {
-        if (event.target.className === 'form-show') {
-          const block = event.target.closest('.product').querySelector('.list');
-          block.style.display = 'block';
-        }
-        if (event.target.className === 'xBtn') {
-          const block = event.target.closest('.product').querySelector('.list');
-          block.style.display = 'none';
-        }
-        if (event.target.className === 'form-execute') {
-          const id = event.target.closest('.product').id;
-          let customer = this.customerData.filter((item) => item.id != id);
-          localStorage.setItem('orders', JSON.stringify(customer));
-          this.customerData = customer
-          this.renderOrder(this.customerData);
-        }
-      });
+    const products = document.querySelector('#orderList');
+    products.addEventListener('click', (event) => {
+      if (event.target.className === 'form-show') {
+        const block = event.target.closest('.product').querySelector('.list');
+        block.style.display = 'block';
+      }
+      if (event.target.className === 'xBtn') {
+        const block = event.target.closest('.product').querySelector('.list');
+        block.style.display = 'none';
+      }
+      if (event.target.className === 'form-execute') {
+        const id = event.target.closest('.product').id;
+        let customer = this.customerData.filter((item) => item.id != id);
+        localStorage.setItem('orders', JSON.stringify(customer));
+        this.customerData = customer
+        this.renderOrder(this.customerData);
+      }
     });
   }
 }
