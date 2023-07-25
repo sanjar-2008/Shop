@@ -1,6 +1,6 @@
 export default class Product {
     constructor() {
-        this.viewProducts = JSON.parse(localStorage.getItem('product')) || [];
+        this.viewProducts = JSON.parse(localStorage.getItem('zoom')) || [];
     }
 
     init() {
@@ -37,7 +37,7 @@ export default class Product {
         };
 
         this.viewProducts.push(item);
-        localStorage.setItem('product', JSON.stringify(this.viewProducts));
+        localStorage.setItem('zoom', JSON.stringify(this.viewProducts));
     }
     renderSavedItems() {
         this.viewProducts.forEach((item) => {

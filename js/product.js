@@ -9,7 +9,6 @@ class Clothes {
         this.discount = document.querySelector('#discount')
         this.area = document.querySelector('#area')
         this.add = document.querySelector('#addProduct')
-        this.random = Math.floor(Math.random() * 100000);
     }
     init() {
         this.renderProduct()
@@ -51,26 +50,32 @@ class Clothes {
         })
     }
     addProduct(){
-        this.add.addEventListener('click', ()=>{
+        this.add.addEventListener('click', (event)=>{
+            event.preventDefault()
             const type = this.type.value
             const price = this.price.value
             const discount = this.discount.value
             const area = this.area.value
-            this.saveProduct(this.random,type,price,discount,area)
+            const random = Math.floor(Math.random() * 100000);
+            this.saveProduct(random,type,price,discount,area)
 
         })
     }
-    saveProduct(id,type,price,discount,area){
-        if(type === '' || price === '' || discount === '' || area === ''){
-            alert('Пожалуйста заполните все поли!')
-        }
-        else{
-            const product = {id,img,price,discount}
-            this.products.push(product);
-            localStorage.setItem('product', JSON.stringify(this.products));
-            this.renderUser(this.products)
+    saveProduct(id, type, price, discount, area) {
+        if (type === '' || price === '' || discount === '' || area === '') {
+            alert('Please fill in all fields!');
+        } else {
+            if (this.products.length < 6) {
+                const product = { id, img: type, price, discount, name: area };
+                this.products.push(product);
+                localStorage.setItem('product', JSON.stringify(this.products));
+                this.renderProduct();
+            } else if(this.products.length >= 6){
+                alert('Product cell is filled');
+            }
         }
     }
+    
 }
 
 new Clothes().init()
