@@ -74,6 +74,8 @@ class Ave {
   }
 
   addItems = (event) => {
+    window.location.href = location.href
+
     const productId = Math.floor(Math.random() * 10000000);
     const product = event.target.closest('.fashion-block-item');
     const productName = product.querySelector('.fashion-block-info > p:first-child').textContent;
